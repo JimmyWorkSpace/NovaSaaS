@@ -1,0 +1,59 @@
+.ns-layout {
+  min-height: 100vh;
+  background: #0b1220;
+  color: #ffffff;
+}
+
+.ns-header {
+  height: 80px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.ns-logo {
+  height: 40px;
+}
+
+.ns-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ns-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1f2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ns-system-notice {
+  background: #7c2d12;
+  padding: 10px 40px;
+  color: #fff;
+}
+
+.ns-content {
+  padding: 40px;
+}
+
+
+.ns-footer {
+  border-top: 1px solid #1f2937;
+  padding: 20px 40px;
+  text-align: center;
+  color: #9ca3af;
+  background: #0b1220;
+}
+
+.ns-footer-content {
+  font-size: 14px;
+}
