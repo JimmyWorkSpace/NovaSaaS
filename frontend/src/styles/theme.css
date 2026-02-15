@@ -1,59 +1,277 @@
-.ns-layout {
-  min-height: 100vh;
-  background: #0b1220;
-  color: #ffffff;
+
+/* =====================================================
+   GLOBAL HEADER – VENDOR PIXEL PERFECT
+===================================================== */
+
+/* =========================
+   MAIN HEADER (WHITE)
+========================= */
+.ns-header {
+  width: 100%;
+  background: #ffffff;
+  padding: 14px 0;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+  z-index: 100;
 }
 
-.ns-header {
-  height: 80px;
-  background: #0f172a;
+.ns-header .container {
+  max-width: 1280px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
-  border-bottom: 1px solid #1f2937;
 }
+
+
+.ns-header {
+  margin: 0 !important;
+}
+
+
+/* =========================
+   LOGO
+========================= */
 
 .ns-logo {
-  height: 40px;
-}
-
-.ns-header-right {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
-.ns-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #1f2937;
+.ns-logo img {
+  height: 84px;               /* 与 Vendor 一致 */
+  object-fit: contain;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.ns-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
 }
 
-.ns-system-notice {
-  background: #7c2d12;
-  padding: 10px 40px;
-  color: #fff;
+.ns-nav a {
+  text-decoration: none;
+  color: #1f2937;
+  font-size: 20px;        /* ← 放大字体 */
+  font-weight: 900 !important;
+  letter-spacing: 0.3px;  /* 微调字距 */
+  margin: 0 20px;         /* 稍微拉开间距 */
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.ns-content {
-  padding: 40px;
+
+/* Slash divider */
+.ns-nav a::after {
+  content: "/";
+  position: absolute;
+  right: -18px;
+  color: #d1d5db;
 }
 
-
-.ns-footer {
-  border-top: 1px solid #1f2937;
-  padding: 20px 40px;
-  text-align: center;
-  color: #9ca3af;
-  background: #0b1220;
+.ns-nav a:last-child::after {
+  content: "";
 }
 
-.ns-footer-content {
+.ns-nav a:hover {
+  color: #4c6ef5;
+}
+
+/* =========================
+   CTA BUTTON
+========================= */
+
+.ns-btn-register {
+  background: linear-gradient(
+    90deg,
+    #6d7cff,
+    #4c6ef5
+  );
+  border: none;
+  padding: 12px 28px;
+  border-radius: 14px;
+  color: #ffffff;
+  font-weight: 600;
   font-size: 14px;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.35);
+  transition: all 0.3s ease;
+}
+
+.ns-btn-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(99,102,241,0.55);
+}
+
+/* =========================
+   NOTICE BAR (Vendor 风格)
+========================= */
+
+.ns-header-notice {
+  width: 100%;
+  background: #f3f4f6;
+  color: #111827;
+
+  font-size: 20px;      /* ← 从14改成16 */
+  font-weight: 500;
+  text-align: center;
+
+  padding: 6px 0 8px;
+  line-height: 1.3;
+}
+
+.ns-header-notice .notice-highlight {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.ns-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 80% 30%,rgba(139,92,246,0.4),transparent 50%),
+    radial-gradient(circle at 20% 20%,rgba(37,99,235,0.25),transparent 50%),
+    linear-gradient(135deg,#050816 0%,#0b1220 40%,#111a3a 70%,#1e1b4b 100%);
+}
+
+/* 星空 */
+
+.ns-hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,0.4),transparent),
+    radial-gradient(1.5px 1.5px at 70% 60%,rgba(255,255,255,0.3),transparent),
+    radial-gradient(1px 1px at 40% 80%,rgba(255,255,255,0.25),transparent);
+  background-repeat:repeat;
+  background-size:800px 600px;
+  opacity:0.25;
+  animation: starDrift 80s linear infinite;
+}
+
+@keyframes starDrift {
+  from { background-position: 0 0; }
+  to { background-position: 1200px 900px; }
+}
+
+.ns-hero-title {
+  font-size: clamp(46px,5vw,72px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color:#fff;
+}
+
+.ns-hero-subtitle {
+  font-size: 20px;
+  color:#9ca3af;
+  margin-top: 20px;
+}
+
+/* 按钮 */
+
+.ns-btn-primary {
+  background: linear-gradient(90deg,#6366f1,#3b82f6);
+  padding: 16px 40px;
+  border-radius: 20px;
+  border:none;
+  color:#fff;
+  font-weight:600;
+  box-shadow: 0 20px 60px rgba(99,102,241,0.45);
+  transition: all .3s ease;
+}
+
+.ns-btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 80px rgba(99,102,241,0.9);
+}
+
+.ns-btn-outline {
+  border:1px solid rgba(255,255,255,0.4);
+  padding:16px 40px;
+  border-radius:20px;
+  background:transparent;
+  color:#fff;
+}
+
+/* Mockup */
+
+.ns-hero-mockup {
+  height:520px;
+  border-radius:36px;
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
+  border:1px solid rgba(255,255,255,0.15);
+  box-shadow:
+    0 100px 200px rgba(0,0,0,0.7),
+    inset 0 0 40px rgba(255,255,255,0.08),
+    0 0 120px rgba(139,92,246,0.4);
+  backdrop-filter: blur(30px);
+  animation: mockupFloat 14s ease-in-out infinite;
+}
+
+@keyframes mockupFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+  100% { transform: translateY(0); }
+}
+
+/* 波浪 */
+
+.ns-hero-waves {
+  position:absolute;
+  right:0;
+  top:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  opacity:0.2;
+}
+
+.wave {
+  fill: rgba(255,255,255,0.06);
+  animation: waveFloat 20s ease-in-out infinite;
+}
+
+.wave1 { animation-delay:0s; }
+.wave2 { animation-delay:3s; }
+.wave3 { animation-delay:6s; }
+
+@keyframes waveFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* 底部渐层过渡 */
+
+.ns-hero-bottom-fade {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:120px;
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    #ffffff
+  );
 }
