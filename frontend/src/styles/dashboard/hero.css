@@ -1,0 +1,222 @@
+/* =====================================================
+   HERO SECTION – Vendor Match Version
+===================================================== */
+
+/* =========================
+   HERO WRAPPER
+========================= */
+
+.ns-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #050816 0%,
+    #0b1220 40%,
+    #111a3a 70%,
+    #16204a 100%
+  );
+}
+
+
+/* =========================
+   STAR PARTICLE LAYER
+========================= */
+
+.ns-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1.5px 1.5px at 70% 60%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.25), transparent);
+
+  background-repeat: repeat;
+  background-size: 800px 600px;
+  opacity: 0.25;
+
+  animation: starDrift 80s linear infinite;
+}
+
+
+/* =========================
+   CONTENT LAYER
+========================= */
+
+.ns-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.ns-hero-title {
+  font-size: clamp(46px, 5vw, 72px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.ns-hero-subtitle {
+  font-size: 20px;
+  color: #9ca3af;
+  margin-top: 20px;
+}
+
+
+/* =========================
+   BUTTON GROUP
+========================= */
+
+.ns-hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+
+/* =========================
+   RIGHT VISUAL WRAPPER
+========================= */
+
+.ns-hero-visual-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* =========================
+   GLOW EFFECT (Vendor Style)
+========================= */
+
+.ns-hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+
+  background: radial-gradient(
+    circle,
+    rgba(99,102,241,0.5) 0%,
+    rgba(59,130,246,0.3) 40%,
+    transparent 70%
+  );
+
+  filter: blur(120px);
+  z-index: 0;
+}
+
+
+/* =========================
+   DASHBOARD MOCKUP
+========================= */
+
+.ns-hero-mockup {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 620px;
+  border-radius: 28px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(30px);
+
+  box-shadow:
+    0 60px 120px rgba(0,0,0,0.6),
+    0 0 80px rgba(99,102,241,0.3);
+
+  padding: 20px;
+
+  animation: mockupFloat 12s ease-in-out infinite;
+}
+
+.ns-hero-mockup img {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  display: block;
+}
+
+
+
+/* =========================
+   WAVES BACKGROUND
+========================= */
+
+.ns-hero-waves {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.wave {
+  fill: rgba(255,255,255,0.06);
+  animation: waveFloat 20s ease-in-out infinite;
+}
+
+.wave1 { animation-delay: 0s; }
+.wave2 { animation-delay: 3s; }
+.wave3 { animation-delay: 6s; }
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+  .ns-hero {
+    padding: 120px 0;
+  }
+
+  .ns-hero-title {
+    font-size: 40px;
+  }
+
+  .ns-hero-subtitle {
+    font-size: 18px;
+  }
+
+  .ns-hero-buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ns-hero-visual-wrapper {
+    margin-top: 60px;
+  }
+
+}
+
+.ns-hero-mockup img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+

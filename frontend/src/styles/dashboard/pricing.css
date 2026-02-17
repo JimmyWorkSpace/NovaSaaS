@@ -1,0 +1,224 @@
+/* =====================================================
+   PRICING SECTION
+===================================================== */
+
+.ns-pricing {
+  padding: 50px 0;
+  background: #f8fafc;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.ns-pricing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.ns-pricing-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.ns-pricing-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.ns-pricing-toggle button {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #e5e7eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ns-pricing-toggle button.active {
+  background: #111827;
+  color: #ffffff;
+}
+
+
+/* =========================
+   PRICING GRID
+========================= */
+
+.ns-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 100px;
+}
+
+
+/* =========================
+   PRICING CARD
+========================= */
+
+.ns-pricing-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.ns-pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+}
+
+.ns-pricing-card.featured {
+  border: 2px solid #6366f1;
+}
+
+.ns-pricing-card h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.ns-price {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.ns-price span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.ns-pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.ns-pricing-card li {
+  margin-bottom: 10px;
+}
+
+
+/* =========================
+   ADDON SECTION
+========================= */
+
+.ns-addon-section {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.ns-addon-title {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.ns-addon-subtitle {
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+.ns-addon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.ns-addon-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+.addon-price {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+
+/* =========================
+   ENTERPRISE
+========================= */
+
+.ns-enterprise {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+.ns-enterprise h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.ns-enterprise p {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.ns-btn-outline-dark {
+  padding: 12px 28px;
+  border-radius: 14px;
+  border: 1px solid #111827;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ns-btn-outline-dark:hover {
+  background: #111827;
+  color: #ffffff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+  .ns-pricing-grid,
+  .ns-addon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ns-pricing-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+}
+
+/* =========================
+   PRICING BUTTON FIX
+========================= */
+
+.ns-pricing-card .ns-btn-primary {
+  padding: 12px 22px;          /* 縮小高度 */
+  font-size: 14px;             /* 字體變小 */
+  border-radius: 14px;         /* 比 Hero 小一點 */
+  box-shadow: 0 10px 25px rgba(99,102,241,0.35);
+}
+
+.ns-pricing-card .ns-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(99,102,241,0.5);
+}
+

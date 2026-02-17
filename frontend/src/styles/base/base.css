@@ -1,0 +1,81 @@
+/* =====================================================
+   BASE.CSS
+   全站 Reset + 基礎樣式設定
+   ⚠ 此檔案只負責重置與全域基礎設定
+===================================================== */
+
+
+/* =========================
+   Global Reset
+========================= */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #ffffff;
+}
+
+
+/* =========================
+   Typography Rendering
+========================= */
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Inter", "Noto Sans TC", sans-serif;
+  color: #111827;
+}
+
+
+
+/* =========================
+   Default Element Cleanup
+========================= */
+
+/* Remove default link style */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default button style */
+button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Remove default heading margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* Remove default paragraph margin */
+p {
+  margin: 0;
+}
+
+
+/* =========================
+   Container Normalization
+========================= */
+
+.container {
+  margin-top: 0;
+}

@@ -1,0 +1,41 @@
+/* =====================================================
+   ANIMATIONS.CSS
+   全站動畫 Keyframes 統一管理
+   ⚠ 此檔案只放 @keyframes，不放樣式
+===================================================== */
+
+
+/* =========================
+   星空背景漂移
+   使用於：.ns-hero::after
+========================= */
+@keyframes starDrift {
+  from { 
+    background-position: 0 0; 
+  }
+  to { 
+    background-position: 1200px 900px; 
+  }
+}
+
+
+/* =========================
+   Hero Mockup 浮動
+   使用於：.ns-hero-mockup
+========================= */
+@keyframes mockupFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-16px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* =========================
+   波浪浮動
+   使用於：.wave
+========================= */
+@keyframes waveFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}

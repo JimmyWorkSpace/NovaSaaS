@@ -1,0 +1,222 @@
+/* =====================================================
+   FEATURE SECTION – Professional Layout (Final Stable)
+===================================================== */
+
+.ns-feature {
+  padding: 100px 0;
+  background: #f8fafc;
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.ns-feature-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #111827;
+  margin-bottom: 60px;
+  padding-left: 60px;
+}
+
+.ns-feature .container {
+  padding: 0 40px;
+}
+
+/* =========================
+   MAIN FEATURE CARD
+========================= */
+
+.ns-feature-main-card {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+  padding: 60px;
+  border-radius: 28px;
+
+  background: #ffffff;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.06);
+
+  margin-bottom: 80px;
+}
+
+/* =========================
+   VIDEO AREA
+========================= */
+
+.ns-feature-video {
+  flex: 1.1;
+}
+
+/* 影片外層 */
+.ns-feature-video-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+
+  aspect-ratio: 16 / 9;
+  background: #111827; /* 防止圖片未載入時空白 */
+
+  box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+}
+
+/* 影片圖片 */
+.ns-feature-video-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 覆蓋層 */
+.ns-feature-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.ns-feature-video-wrapper:hover .ns-feature-play-overlay {
+  background: rgba(0,0,0,0.4);
+}
+
+/* 播放按鈕 */
+.ns-feature-play-button {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  font-size: 28px;
+
+  transition: all 0.3s ease;
+}
+
+.ns-feature-video-wrapper:hover .ns-feature-play-button {
+  transform: scale(1.1);
+}
+
+/* =========================
+   CONTENT AREA
+========================= */
+
+.ns-feature-main-content {
+  flex: 1;
+}
+
+.ns-feature-main-content h3 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.ns-feature-main-content p {
+  font-size: 20px;
+  color: #6b7280;
+  line-height: 1.8;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.ns-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* =========================
+   GRID CARD
+========================= */
+
+.ns-feature-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.ns-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+}
+
+.ns-feature-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ns-feature-card h4 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.ns-feature-card p {
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* =========================
+   ICON
+========================= */
+
+.ns-feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #eef2ff;
+  color: #6366f1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(99,102,241,0.15);
+}
+
+.ns-feature-card:hover .ns-feature-icon {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+  .ns-feature-main-card {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .ns-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

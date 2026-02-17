@@ -4,7 +4,7 @@ function HeroSection() {
   return (
     <section className="ns-hero">
 
-      {/* 波浪背景 */}
+      {/* 背景波浪 */}
       <div className="ns-hero-waves">
         <svg viewBox="0 0 1440 600" preserveAspectRatio="none">
           <path
@@ -25,21 +25,19 @@ function HeroSection() {
       <div className="container">
         <div className="row align-items-center">
 
+          {/* 左側內容 */}
           <div className="col-lg-6">
             <h1 className="ns-hero-title">
-                讓內容自動發佈&#65292;
-                <br />
-                讓來客穩定成長
+              讓內容自動發佈，
+              <br />
+              讓來客穩定成長
             </h1>
-
-
-
 
             <p className="ns-hero-subtitle">
               AI 智能生成 + 自動排程 = 商業內容自動化
             </p>
 
-            <div className="mt-4 d-flex gap-3">
+            <div className="ns-hero-buttons">
               <button className="ns-btn-primary">
                 註冊領取算力
               </button>
@@ -49,15 +47,24 @@ function HeroSection() {
             </div>
           </div>
 
+          {/* 右側圖片 */}
           <div className="col-lg-6 text-center">
-            <div className="ns-hero-mockup" />
+            <div className="ns-hero-visual-wrapper">
+
+              <div className="ns-hero-glow" />
+
+              <div className="ns-hero-mockup">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+                  alt="Dashboard Preview"
+                />
+              </div>
+
+            </div>
           </div>
 
         </div>
       </div>
-
-      {/* 底部漸層過渡 */}
-      <div className="ns-hero-bottom-fade" />
 
     </section>
   );

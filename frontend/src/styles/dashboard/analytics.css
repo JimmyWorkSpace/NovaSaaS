@@ -1,0 +1,112 @@
+/* =====================================================
+   ANALYTICS SECTION – Clean SaaS Layout (SVG Version)
+===================================================== */
+
+.ns-analytics {
+  padding: 30px 0 80px 0;
+  background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #ffffff 100%
+  );
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+
+.ns-analytics-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.ns-analytics-content {
+  flex: 1;
+  max-width: 520px;
+}
+
+.ns-analytics-title {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+  margin-bottom: 28px;
+}
+
+.ns-analytics-text {
+  font-size: 20px;
+  line-height: 1.9;
+  color: #6b7280;
+}
+
+
+/* =========================
+   RIGHT SVG VISUAL
+========================= */
+
+.ns-analytics-visual {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SVG 本體 */
+
+.ns-analytics-svg {
+  width: 100%;
+  max-width: 640px;
+
+  filter:
+    drop-shadow(0 40px 120px rgba(0,0,0,0.08));
+
+  transition: transform 0.5s ease;
+}
+
+/* 微浮動效果 */
+
+.ns-analytics-svg:hover {
+  transform: translateY(-10px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+  .ns-analytics {
+    padding: 100px 0 120px 0;
+  }
+
+  .ns-analytics-container {
+    flex-direction: column;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .ns-analytics-content {
+    max-width: 100%;
+  }
+
+  .ns-analytics-title {
+    font-size: 36px;
+  }
+
+  .ns-analytics-text {
+    font-size: 18px;
+  }
+
+  .ns-analytics-svg {
+    max-width: 520px;
+  }
+}

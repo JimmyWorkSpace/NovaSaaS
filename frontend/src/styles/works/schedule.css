@@ -1,0 +1,360 @@
+/* 背景 */
+.schedule-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.22), transparent 55%),
+    linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+}
+
+.schedule-title {
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.schedule-subtitle {
+  opacity: 0.75;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.schedule-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 22px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.schedule-section-title {
+  font-weight: 800;
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+.schedule-input {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+.schedule-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.form-label {
+  font-weight: 700;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+/* 顶部保存状态 */
+.save-indicator {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  min-width: 92px;
+  text-align: center;
+}
+
+.save-indicator.saving {
+  color: #f59e0b;
+}
+
+.save-indicator.saved {
+  color: #22c55e;
+}
+
+/* 平台按钮 */
+.platform-btn {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-weight: 800;
+  transition: 0.2s ease;
+}
+
+.platform-btn:hover {
+  transform: translateY(-1px);
+}
+
+.platform-btn.active {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* 发布模式 */
+.repeat-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.repeat-btn {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-weight: 800;
+  transition: 0.2s ease;
+}
+
+.repeat-btn.active {
+  background: rgba(37, 99, 235, 0.35);
+  border-color: rgba(37, 99, 235, 0.55);
+}
+
+/* ====== TipTap Editor ====== */
+.np-editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 16px 16px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: none;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tb-btn {
+  width: 38px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.tb-btn:hover {
+  transform: translateY(-1px);
+}
+
+.tb-btn.active {
+  background: rgba(37, 99, 235, 0.35);
+  border-color: rgba(37, 99, 235, 0.55);
+}
+
+.tb-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.tb-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 4px;
+}
+
+.emoji-bar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.emoji-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  transition: 0.15s ease;
+}
+
+.emoji-btn:hover {
+  transform: translateY(-1px);
+}
+
+.np-editor-shell {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0 0 16px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 12px;
+  min-height: 220px;
+}
+
+.np-editor-shell.danger {
+  border-color: rgba(239, 68, 68, 0.7);
+}
+
+.np-editor-content {
+  outline: none;
+  min-height: 190px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.np-editor-content p {
+  margin: 0 0 10px 0;
+}
+
+.np-editor-content h2 {
+  font-size: 18px;
+  font-weight: 900;
+  margin: 8px 0 10px;
+}
+
+/* 字数统计 */
+.char-counter {
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.85;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.char-counter.danger {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+/* Hashtag summary */
+.hashtag-summary {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hashtag-title {
+  font-weight: 800;
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.hashtag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hashtag-chip {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  color: #93c5fd;
+}
+
+.hashtag-empty {
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+/* 超限提示 */
+.limit-warning {
+  font-size: 12px;
+  color: #fca5a5;
+  font-weight: 800;
+}
+
+/* ====== Preview ====== */
+.preview-shell {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.preview-top {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.preview-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.preview-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.preview-name {
+  font-weight: 900;
+}
+
+.preview-platform {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+.preview-body {
+  padding: 14px;
+}
+
+.preview-text {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.95;
+  white-space: normal;
+}
+
+.np-hashtag {
+  color: #60a5fa;
+  font-weight: 900;
+}
+
+.preview-media {
+  margin-top: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-media-inner {
+  font-size: 22px;
+  font-weight: 900;
+  opacity: 0.45;
+}
+
+.preview-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0.9;
+}
+
+.preview-action {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+/* 响应式 */
+@media (max-width: 992px) {
+  .preview-media {
+    height: 240px;
+  }
+}

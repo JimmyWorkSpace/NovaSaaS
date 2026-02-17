@@ -1,0 +1,252 @@
+/* =========================
+   Studio Page Background
+========================= */
+
+.studio-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding-bottom: 60px;
+}
+
+/* =========================
+   Card
+========================= */
+
+.studio-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.studio-card:hover {
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
+}
+
+/* loading overlay (防誤觸) */
+.studio-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 10;
+}
+
+/* =========================
+   Title
+========================= */
+
+.studio-title {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   Upload Box
+========================= */
+
+.upload-box {
+  width: 140px;
+  height: 140px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.upload-box:hover {
+  border-color: #2563eb;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+  transform: translateY(-3px);
+}
+
+/* =========================
+   Textarea
+========================= */
+
+.studio-textarea {
+  width: 100%;
+  height: 120px;
+  border-radius: 14px;
+  border: none;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  resize: none;
+  transition: 0.3s ease;
+  font-size: 14px;
+}
+
+.studio-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.studio-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
+}
+
+/* =========================
+   Option Buttons
+========================= */
+
+.studio-option-btn {
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: white;
+  transition: 0.3s ease;
+  font-size: 14px;
+}
+
+.studio-option-btn:hover {
+  background: rgba(37, 99, 235, 0.2);
+  transform: translateY(-2px);
+}
+
+.studio-option-btn.active {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+  border: none;
+}
+
+/* disabled 狀態 */
+.studio-option-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* =========================
+   Generate Button (Core CTA)
+========================= */
+
+.studio-generate-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  font-weight: 700;
+  transition: 0.3s ease;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studio-generate-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5);
+}
+
+.studio-generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================
+   Preview Area
+========================= */
+
+.studio-preview {
+  height: 380px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+}
+
+/* subtle animated gradient */
+.studio-preview::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(37, 99, 235, 0.15),
+    transparent
+  );
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =========================
+   Skeleton Loader
+========================= */
+
+.studio-skeleton {
+  width: 80%;
+  height: 70%;
+  border-radius: 16px;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.05) 25%,
+    rgba(255,255,255,0.15) 50%,
+    rgba(255,255,255,0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* =========================
+   Error Message
+========================= */
+
+.studio-error {
+  background: rgba(255, 80, 80, 0.15);
+  color: #ff5c5c;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 992px) {
+  .studio-preview {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .studio-page {
+    padding: 30px 10px;
+  }
+
+  .studio-card {
+    padding: 20px;
+  }
+
+  .studio-preview {
+    height: 220px;
+  }
+}

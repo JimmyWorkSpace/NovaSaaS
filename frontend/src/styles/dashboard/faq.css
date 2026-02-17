@@ -1,0 +1,96 @@
+/* =====================================================
+   FAQ SECTION – Vendor Match
+===================================================== */
+
+.ns-faq {
+  padding: 30px 0;
+  background: #ffffff;
+}
+
+.ns-faq-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 60px;
+  color: #111827;
+}
+
+/* =========================
+   FAQ LIST
+========================= */
+
+.ns-faq-list {
+  border-top: 1px solid #e5e7eb;
+}
+
+.ns-faq-item {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 24px 0;
+}
+
+/* =========================
+   QUESTION
+========================= */
+
+.ns-faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+
+  cursor: pointer;
+  padding: 0;
+}
+
+.ns-faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.ns-faq-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   ANSWER ANIMATION
+========================= */
+
+.ns-faq-answer-wrapper {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.ns-faq-item.active .ns-faq-answer-wrapper {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.ns-faq-answer {
+  background: #f3f4f6;
+  padding: 20px 24px;
+  border-radius: 12px;
+
+  font-size: 16px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+  .ns-faq-title {
+    font-size: 32px;
+  }
+
+}

@@ -1,0 +1,79 @@
+.subtitle-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+.subtitle-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.video-card {
+  position: relative;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(20px);
+}
+
+.video-player {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.subtitle-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.7);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.subtitle-panel {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(20px);
+}
+
+.subtitle-list {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.subtitle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.subtitle-item.active {
+  background: rgba(37,99,235,0.3);
+  border: 1px solid #3b82f6;
+}
+
+.subtitle-text {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.subtitle-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #2563eb;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+}
