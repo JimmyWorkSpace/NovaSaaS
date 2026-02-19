@@ -1,252 +1,282 @@
-/* =========================
-   Studio Page Background
-========================= */
+/* ============================= */
+/* ===== 整体背景 ===== */
+/* ============================= */
 
-.studio-page {
+.studio-hero {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: white;
-  padding-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* =========================
-   Card
-========================= */
+/* ============================= */
+/* ===== 中心区域 ===== */
+/* ============================= */
+
+.studio-center {
+  text-align: center;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ============================= */
+/* ===== 标题 ===== */
+/* ============================= */
+
+.studio-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+/* ============================= */
+/* ===== 卡片网格 ===== */
+/* ============================= */
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* ============================= */
+/* ===== 卡片样式 ===== */
+/* ============================= */
 
 .studio-card {
-  background: rgba(255, 255, 255, 0.05);
+  padding: 50px 40px;
   border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: 0.3s ease;
-  position: relative;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .studio-card:hover {
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 140, 255, 0.4);
+  border-color: rgba(0, 140, 255, 0.6);
 }
 
-/* loading overlay (防誤觸) */
-.studio-overlay {
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-  z-index: 10;
+.studio-card h3 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
-/* =========================
-   Title
-========================= */
-
-.studio-title {
-  font-weight: 700;
-  letter-spacing: 1px;
+.studio-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
 }
 
-/* =========================
-   Upload Box
-========================= */
+/* ============================= */
+/* ===== 子页面容器 ===== */
+/* ============================= */
 
-.upload-box {
-  width: 140px;
-  height: 140px;
-  border: 2px dashed rgba(255, 255, 255, 0.3);
+.studio-sub-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  color: white; /* 关键：统一白色文字 */
+}
+
+/* ============================= */
+/* ===== 返回按钮 ===== */
+/* ============================= */
+
+.studio-back-btn {
+  margin-bottom: 40px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.studio-back-btn:hover {
+  background: rgba(0,140,255,0.3);
+  border-color: rgba(0,140,255,0.6);
+}
+
+/* ============================= */
+/* ===== 子视图通用样式 ===== */
+/* ============================= */
+
+.model-view {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+}
+
+.model-title {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* ===== 输入框 ===== */
+/* ============================= */
+
+.model-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  resize: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.model-textarea:focus {
+  border-color: rgba(0,140,255,0.6);
+  box-shadow: 0 0 20px rgba(0,140,255,0.4);
+}
+
+/* ============================= */
+/* ===== 上传框 ===== */
+/* ============================= */
+
+.upload-box-large {
+  width: 100%;
+  height: 180px;
   border-radius: 16px;
+  border: 1px dashed rgba(255,255,255,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 40px;
+  color: rgba(255,255,255,0.6);
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
-.upload-box:hover {
-  border-color: #2563eb;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
-  transform: translateY(-3px);
-}
-
-/* =========================
-   Textarea
-========================= */
-
-.studio-textarea {
-  width: 100%;
-  height: 120px;
-  border-radius: 14px;
-  border: none;
-  padding: 14px;
-  background: rgba(255, 255, 255, 0.08);
+.upload-box-large:hover {
+  border-color: rgba(0,140,255,0.6);
   color: white;
-  resize: none;
-  transition: 0.3s ease;
-  font-size: 14px;
 }
 
-.studio-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+/* ============================= */
+/* ===== 选项按钮 ===== */
+/* ============================= */
+
+.option-group {
+  display: flex;
+  gap: 12px;
 }
 
-.studio-textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
-}
-
-/* =========================
-   Option Buttons
-========================= */
-
-.studio-option-btn {
-  padding: 10px 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.option-btn {
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
   background: transparent;
   color: white;
-  transition: 0.3s ease;
-  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.studio-option-btn:hover {
-  background: rgba(37, 99, 235, 0.2);
-  transform: translateY(-2px);
+.option-btn:hover {
+  border-color: rgba(0,140,255,0.6);
 }
 
-.studio-option-btn.active {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+.option-btn.active {
+  background: rgba(0,140,255,0.3);
+  border-color: rgba(0,140,255,0.8);
+}
+
+/* ============================= */
+/* ===== 底部按钮 ===== */
+/* ============================= */
+
+.model-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.view-btn,
+.generate-btn {
+  padding: 10px 28px;
+  border-radius: 30px;
   border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
 }
 
-/* disabled 狀態 */
-.studio-option-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-/* =========================
-   Generate Button (Core CTA)
-========================= */
-
-.studio-generate-btn {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  border: none;
-  border-radius: 14px;
-  padding: 12px 20px;
-  font-weight: 700;
-  transition: 0.3s ease;
+.view-btn {
+  background: rgba(255,255,255,0.1);
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.studio-generate-btn:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5);
+.view-btn:hover {
+  background: rgba(255,255,255,0.2);
 }
 
-.studio-generate-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  box-shadow: none;
+.generate-btn {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: white;
 }
 
-/* =========================
-   Preview Area
-========================= */
-
-.studio-preview {
-  height: 380px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  padding: 20px;
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,140,255,0.5);
 }
 
-/* subtle animated gradient */
-.studio-preview::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(37, 99, 235, 0.15),
-    transparent
-  );
-  animation: shimmer 6s linear infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* =========================
-   Skeleton Loader
-========================= */
-
-.studio-skeleton {
-  width: 80%;
-  height: 70%;
-  border-radius: 16px;
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.05) 25%,
-    rgba(255,255,255,0.15) 50%,
-    rgba(255,255,255,0.05) 75%
-  );
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  position: relative;
-  z-index: 2;
-}
-
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-/* =========================
-   Error Message
-========================= */
-
-.studio-error {
-  background: rgba(255, 80, 80, 0.15);
-  color: #ff5c5c;
-  padding: 10px 14px;
-  border-radius: 10px;
+.model-info {
+  color: rgba(255,255,255,0.6);
   font-size: 14px;
+  margin-bottom: 10px;
 }
 
-/* =========================
-   Responsive
-========================= */
-
-@media (max-width: 992px) {
-  .studio-preview {
-    height: 280px;
-  }
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media (max-width: 768px) {
-  .studio-page {
-    padding: 30px 10px;
-  }
+.section-actions {
+  display: flex;
+  gap: 12px;
+}
 
-  .studio-card {
-    padding: 20px;
-  }
+.link-btn {
+  background: none;
+  border: none;
+  color: #38bdf8;
+  cursor: pointer;
+  font-size: 13px;
+}
 
-  .studio-preview {
-    height: 220px;
-  }
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.hint-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+}
+
+.generate-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cost-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 6px;
 }

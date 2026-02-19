@@ -29,6 +29,8 @@ function App() {
           ========================= */}
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/studio" element={<StudioPage />} />
+          <Route path="/studio/:model" element={<StudioPage />} />
+
 
           {/* =========================
              Works Module
