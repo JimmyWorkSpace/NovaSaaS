@@ -15,23 +15,23 @@ export default function GlobalHeader() {
   /* =========================
      動態頁面標題
   ========================= */
-const getPageTitle = () => {
-  if (!isLoggedIn) return null;
+  const getPageTitle = () => {
+    if (!isLoggedIn) return null;
 
-  if (
-    location.pathname.startsWith("/works") ||
-    location.pathname.startsWith("/dashboard")
-  ) {
-    return "我的作品";
-  }
+    if (
+      location.pathname.startsWith("/works") ||
+      location.pathname.startsWith("/dashboard")
+    ) {
+      return "我的作品";
+    }
 
-  if (location.pathname.startsWith("/studio")) {
-    return "建立新作品";
-  }
+    // studio 子頁面也統一回到 Dashboard
+    if (location.pathname.startsWith("/studio")) {
+      return "建立新作品";
+    }
 
-  return null;
-};
-
+    return null;
+  };
 
   const pageTitle = getPageTitle();
 
@@ -55,24 +55,23 @@ const getPageTitle = () => {
               />
             </button>
 
-            {/* 🔥 新增頁面標題 */}
+            {/* 🔥 動態頁面標題 */}
             {pageTitle && (
-                <h5
-                    className="mb-0 fw-bold ns-page-title ms-3"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => {
-                    if (pageTitle === "我的作品") {
-                        navigate("/works");
-                    }
-                    if (pageTitle === "建立新作品") {
-                        navigate("/studio");
-                    }
-                    }}
-                >
-                    {pageTitle}
-                </h5>
-                )}
-
+              <h5
+                className="mb-0 fw-bold ns-page-title ms-3"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  if (pageTitle === "我的作品") {
+                    navigate("/works");
+                  }
+                  if (pageTitle === "建立新作品") {
+                    navigate("/dashboard"); // ✅ 不再跳 /studio
+                  }
+                }}
+              >
+                {pageTitle}
+              </h5>
+            )}
 
           </div>
 
@@ -122,13 +121,7 @@ const getPageTitle = () => {
 
               {isLoggedIn ? (
                 <>
-                  {/* 建立新作品 */}
-                  <button
-                    className="btn btn-primary px-4 fw-semibold"
-                    onClick={() => navigate("/studio")}
-                  >
-                    ＋ 建立新作品
-                  </button>
+                  {/* ❌ 已移除 建立新作品 按鈕 */}
 
                   <span className="fw-semibold text-white">
                     👤 {user?.name || "Demo User"}

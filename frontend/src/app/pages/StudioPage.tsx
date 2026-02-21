@@ -24,7 +24,7 @@ export default function StudioPage() {
         <div className="studio-sub-container">
           <button
             className="studio-back-btn"
-            onClick={() => navigate("/studio")}
+            onClick={() => navigate("/dashboard")}
           >
             ← 返回
           </button>

@@ -1,90 +1,71 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Image, Video, Rocket, User } from "lucide-react";
 
 function FeatureSection() {
+  const navigate = useNavigate();
+
   return (
     <section className="ns-feature">
       <div className="container">
 
         <h2 className="ns-feature-title">
-          AI 創作能力
+          選擇創作模型
         </h2>
 
-        {/* 主卡片 */}
-        <div className="ns-feature-main-card">
-
-          {/* 左側影片區 */}
-          <div className="ns-feature-video">
-            <div className="ns-feature-video-wrapper">
-
-              <img
-                src="https://images.unsplash.com/photo-1551281044-8d8f2d9d7c34"
-                alt="AI Dashboard"
-                className="ns-feature-video-image"
-              />
-
-              <div className="ns-feature-play-overlay">
-                <div className="ns-feature-play-button">
-                  ▶
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* 右側文字 */}
-          <div className="ns-feature-main-content">
-            <h3>AI 創意影音（Sora 引擎）</h3>
-            <p>
-              AI 智能生成，顛覆影音創作流程，
-              可快速產生高品質影音內容，
-              展現驚人視覺效果。
-            </p>
-          </div>
-
-        </div>
-
-        {/* 下方功能卡片 */}
+        {/* 直接改成 4 個入口卡片 */}
         <div className="ns-feature-grid">
 
-          <div className="ns-feature-card">
+          <div 
+            className="ns-feature-card"
+            onClick={() => navigate("/studio/sora")}
+          >
+            <div className="ns-feature-card-header">
+              <h4>AI 視頻生成</h4>
+              <div className="ns-feature-icon">
+                <Video size={36} strokeWidth={1.8} />
+              </div>
+            </div>
+            <p>Sora API - 專業視頻創作</p>
+          </div>
+
+          <div 
+            className="ns-feature-card"
+            onClick={() => navigate("/studio/nano")}
+          >
             <div className="ns-feature-card-header">
               <h4>AI 創意生圖</h4>
               <div className="ns-feature-icon">
                 <Image size={36} strokeWidth={1.8} />
               </div>
             </div>
-            <p>快速產生高品質創意圖像內容。</p>
+            <p>NanoBanana Pro - 高質量圖像生成</p>
           </div>
 
-          <div className="ns-feature-card">
+          <div 
+            className="ns-feature-card"
+            onClick={() => navigate("/studio/veo")}
+          >
             <div className="ns-feature-card-header">
-              <h4>圖文聯創影音</h4>
+              <h4>圖文聯創視頻</h4>
               <div className="ns-feature-icon">
                 <Video size={36} strokeWidth={1.8} />
               </div>
             </div>
-            <p>圖文腳本快速轉換為影音作品。</p>
+            <p>Veo3 API - 文本 + 視頻生成</p>
           </div>
 
-          <div className="ns-feature-card">
+          <div 
+            className="ns-feature-card"
+            onClick={() => navigate("/studio/grok")}
+          >
             <div className="ns-feature-card-header">
-              <h4>極速創作影音</h4>
+              <h4>極速創作短視頻</h4>
               <div className="ns-feature-icon">
                 <Rocket size={36} strokeWidth={1.8} />
               </div>
             </div>
-            <p>秒級生成影音內容。</p>
-          </div>
-
-          <div className="ns-feature-card">
-            <div className="ns-feature-card-header">
-              <h4>虛擬人</h4>
-              <div className="ns-feature-icon">
-                <User size={36} strokeWidth={1.8} />
-              </div>
-            </div>
-            <p>虛擬人角色創建與應用。</p>
+            <p>Grok Imagine - 快速視頻生成</p>
           </div>
 
         </div>

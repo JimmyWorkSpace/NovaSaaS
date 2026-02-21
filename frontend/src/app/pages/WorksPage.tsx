@@ -42,14 +42,27 @@ export default function WorksPage() {
 
         {/* Header */}
         <div className="d-flex align-items-center justify-content-between mb-4">
-          <h2 className="works-title m-0">我的作品</h2>
 
+          {/* 左侧：返回 + 标题 */}
+          <div className="d-flex align-items-center gap-3">
+            <button
+              className="btn btn-outline-light btn-sm"
+              onClick={() => navigate("/dashboard")}
+            >
+              ← 返回
+            </button>
+
+            <h2 className="works-title m-0">我的作品</h2>
+          </div>
+
+          {/* 右侧：新建按钮（如果你还要保留的话） */}
           <button
             className="btn btn-primary px-4 fw-semibold"
-            onClick={() => navigate("/studio")}
+            onClick={() => navigate("/dashboard")}
           >
             ＋ 建立新作品
           </button>
+
         </div>
 
         {/* Grid */}
@@ -58,7 +71,7 @@ export default function WorksPage() {
             <div className="col-12 col-sm-6 col-lg-5" key={w.id}>
               <div className="work-card h-100 d-flex flex-column">
 
-                {/* Thumbnail（可点击跳转） */}
+                {/* Thumbnail */}
                 <div
                   className="work-thumbnail"
                   onClick={() => navigate(`/works/${w.id}`)}
@@ -85,7 +98,6 @@ export default function WorksPage() {
                     </span>
                   </div>
 
-                  {/* 按钮区域始终在底部 */}
                   <div className="work-actions mt-auto">
 
                     <button
@@ -104,8 +116,7 @@ export default function WorksPage() {
                       加字幕
                     </button>
 
-
-                   <button
+                    <button
                       className="btn btn-sm btn-outline-warning"
                       onClick={() => navigate(`/works/${w.id}/schedule`)}
                     >
@@ -113,11 +124,12 @@ export default function WorksPage() {
                       排程
                     </button>
 
-
                     <button
                       className="btn btn-sm btn-outline-danger"
                       onClick={() => {
-                        const confirmed = window.confirm("確定要刪除此作品嗎？此操作無法復原。");
+                        const confirmed = window.confirm(
+                          "確定要刪除此作品嗎？此操作無法復原。"
+                        );
                         if (confirmed) {
                           handleDelete(w.id);
                         }
@@ -126,7 +138,6 @@ export default function WorksPage() {
                       <FaTrash className="me-1" />
                       刪除
                     </button>
-
 
                   </div>
 
