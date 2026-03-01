@@ -89,6 +89,15 @@
    Inputs
 ========================= */
 
+.login-error {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
 .login-input {
   width: 100%;
   height: 54px;

@@ -1,15 +1,54 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { uploadImage, apiBaseURL } from "../../services/api";
+
+const MAX_IMAGES = 9;
 
 export default function SoraView() {
   const [ratio, setRatio] = useState("9:16");
   const [count, setCount] = useState(1);
   const [duration, setDuration] = useState("15");
   const [description, setDescription] = useState("");
+  const [imageList, setImageList] = useState<{ url: string; newFileName: string }[]>([]);
+  const [uploadLoading, setUploadLoading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const clearText = () => setDescription("");
 
   const generateScript = () => {
     setDescription("一个未来城市的航拍镜头，霓虹灯闪烁，电影级运镜，超现实风格。");
+  };
+
+  const handleUploadClick = () => {
+    if (imageList.length >= MAX_IMAGES) return;
+    setUploadError("");
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files?.length) return;
+    const remain = MAX_IMAGES - imageList.length;
+    const toAdd = Array.from(files).slice(0, remain);
+    if (toAdd.length === 0) return;
+    setUploadLoading(true);
+    setUploadError("");
+    try {
+      const results = await Promise.all(toAdd.map((file) => uploadImage(file)));
+      setImageList((prev) => [
+        ...prev,
+        ...results.map((r) => ({ url: r.url, newFileName: r.newFileName })),
+      ]);
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "图片上传失败");
+    } finally {
+      setUploadLoading(false);
+      e.target.value = "";
+    }
+  };
+
+  const removeImage = (index: number) => {
+    setImageList((prev) => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -19,11 +58,54 @@ export default function SoraView() {
       {/* ===== 产品能力说明 ===== */}
       <div className="model-info">
         <span>支持 1~9 张参考图，可拼接九宫格效果更佳</span>
+        {imageList.length > 0 && (
+          <span className="model-info-count">（最多 9 张，已上传 {imageList.length} 张）</span>
+        )}
       </div>
 
       {/* ===== 上传区域 ===== */}
-      <div className="upload-box-large">
-        +
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/jpeg,image/png,image/gif,image/webp,image/bmp"
+        multiple
+        className="studio-upload-input"
+        onChange={handleFileChange}
+      />
+      <div className="upload-area">
+        {imageList.length > 0 && (
+          <div className="upload-thumb-list">
+            {imageList.map((img, index) => (
+              <div key={img.newFileName} className="upload-thumb-wrap">
+                <img
+                  src={`${apiBaseURL}${img.url}`}
+                  alt={`参考图 ${index + 1}`}
+                  className="upload-thumb-img"
+                />
+                <button
+                  type="button"
+                  className="upload-thumb-remove"
+                  onClick={() => removeImage(index)}
+                  aria-label="移除"
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+        {imageList.length < MAX_IMAGES && (
+          <div
+            className={`upload-box-large ${uploadLoading ? "uploading" : ""}`}
+            onClick={handleUploadClick}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Enter" && handleUploadClick()}
+          >
+            {uploadLoading ? "上传中…" : "+"}
+          </div>
+        )}
+        {uploadError && <div className="upload-error">{uploadError}</div>}
       </div>
 
       {/* ===== 描述区域 ===== */}

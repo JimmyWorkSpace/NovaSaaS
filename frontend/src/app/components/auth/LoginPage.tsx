@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext";
+import { login as loginApi } from "../../../services/api";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const { login: authLogin } = useAuth();
 
   const [mode, setMode] = useState<"email" | "mobile">("email");
   const [countdown, setCountdown] = useState(0);
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   /* 驗證碼倒數 */
   useEffect(() => {
@@ -18,6 +26,29 @@ export default function LoginPage() {
     return () => clearInterval(timer);
   }, [countdown]);
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    if (!username.trim()) {
+      setError("請輸入用戶名");
+      return;
+    }
+    if (!password) {
+      setError("請輸入密碼");
+      return;
+    }
+    setLoading(true);
+    try {
+      const { token } = await loginApi(username.trim(), password);
+      authLogin(token, { name: username.trim() });
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "登入失敗");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="login-page">
       <div className="login-card">
@@ -26,19 +57,33 @@ export default function LoginPage() {
           {mode === "email" ? "登入帳號" : "手機驗證登入"}
         </h2>
 
-        {/* ================= Email Login ================= */}
+        {/* ================= 帳號密碼登入（對接後端） ================= */}
         {mode === "email" ? (
-          <>
+          <form onSubmit={handleSubmit}>
+            {error && (
+              <div className="login-error" role="alert">
+                {error}
+              </div>
+            )}
+
             <input
-              type="email"
+              type="text"
               className="login-input"
-              placeholder="Email"
+              placeholder="用戶名"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              autoComplete="username"
+              disabled={loading}
             />
 
             <input
               type="password"
               className="login-input"
-              placeholder="Password"
+              placeholder="密碼"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+              disabled={loading}
             />
 
             {/* 🔐 忘記密碼 */}
@@ -49,12 +94,13 @@ export default function LoginPage() {
             </div>
 
             <button
+              type="submit"
               className="login-btn-primary"
-              onClick={() => navigate("/dashboard")}
+              disabled={loading}
             >
-              登入
+              {loading ? "登入中…" : "登入"}
             </button>
-          </>
+          </form>
         ) : (
           <>
             <input
